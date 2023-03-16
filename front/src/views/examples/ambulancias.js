@@ -2,7 +2,7 @@ import HomeHeader from "components/Headers/HomeHeader";
 import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { Container } from "reactstrap";
-
+import '../../styles/header.css'
 function Ambulancias() {
 
     
@@ -28,14 +28,17 @@ function Ambulancias() {
 
     return (<>
         <HomeHeader/>
-
+        <div className="content-header">
+            <b>Ya Puedes Procesar la imagen</b>
+        </div>
         <Container className = "mt-5" fluid>
-
+            
            <div className="d-flex justify-content-center">
-
+           
             {
                 imageContent !== undefined ?
                 <div class ="w-80 p-3">
+                    
                     <img src = {imageContent} class = "img-fluid h-50"/>
                 </div>:
                 <></>
@@ -44,6 +47,9 @@ function Ambulancias() {
                 ticket !== undefined ? 
                     <div>
                         <h2 className="my-5"> Informacion del ticket </h2>
+                        <div className="content-body">
+                            <b></b>
+                        </div>
                         <pre className = "">
                             {ticket} 
                         </pre> 
