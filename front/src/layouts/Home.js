@@ -60,11 +60,6 @@ const Home = (props) => {
       />
       <div className="main-content" ref={mainContent}>
 
-        <HomeNavBar
-            {...props}
-            brandText={getBrandText(props.location.pathname)}
-        />  
-
         <Switch>
           {getRoutes(routes)}
         </Switch>

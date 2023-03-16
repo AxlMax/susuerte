@@ -65,5 +65,12 @@ var routes = [
     component: Ambulancias,
     layout: "/home"
   },
+  {
+    path: "/ticket-historial",
+    name: "historial",
+    icon: "ni ni-chart-bar-32 text-info",
+    component: Ambulancias,
+    layout: "/home"
+  },
 ];
 export default routes;

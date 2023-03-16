@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     value: null,
     content : null,
-    validate : {}
+    validate : undefined,
+    
 }
 
 export const ticketSlice = createSlice({
