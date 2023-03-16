@@ -1,0 +1,22 @@
+import { Container} from 'reactstrap';
+import UploadFiles from 'components/fileUploader/fileUploader';
+
+const HomeHeader = () => {
+
+  return (
+    <>
+      <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
+        <Container fluid>
+          <div className="header-body">
+          
+            <UploadFiles/>
+
+          </div>
+        </Container>
+      </div>
+
+    </>
+  );
+};
+
+export default HomeHeader;

@@ -1,0 +1,5 @@
+OCR/node_modules/
+OCR/*.docx
+OCR/package-lock.json
+OCR/ticket-example/
+front/node_modules/
