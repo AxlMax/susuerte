@@ -118,7 +118,7 @@ const UploadFiles = () => {
                     </div>
                     <aside className="selected-file-wrapper">
                     <button
-                        className="btn btn-success my-3"
+                        className="btn btn-success my-3 animBtn"
                         disabled={!selectedFiles}
                         onClick={upload}
 

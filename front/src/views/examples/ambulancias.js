@@ -16,53 +16,68 @@ function Ambulancias() {
 
         if(validate !== undefined){
             if(validate["_id"] !== undefined){
-                setTicketValidate("Ticket ganador")
+                setTicketValidate("Ticket Ganador")
             }else{
-                setTicketValidate("ticket perdedor")
+                setTicketValidate("Ticket Perdedor")
             }
         }
         
     },[validate])
 
+    function separator(numb) {
+        var str = numb.toString().split(".");
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return str.join(".");
+    }
+    function getingDate(fecha) {
+        const fechas = new Date(Date.parse(fecha));
+        const fechaLegible = fechas.toLocaleDateString() + ' ' + fechas.toLocaleTimeString();
+        return fechaLegible
+    }
     
 
     return (<>
         <HomeHeader/>
-        <div className="content-header">
-            <b>Ya Puedes Procesar la imagen</b>
-        </div>
         <Container className = "mt-5" fluid>
             
-           <div className="d-flex justify-content-center">
+           <div className="content-body">
            
             {
                 imageContent !== undefined ?
-                <div class ="w-80 p-3">
-                    
-                    <img src = {imageContent} class = "img-fluid h-50"/>
+                <div class ="content-header">
+                    <b id="title-name" >Ya Puedes Procesar la imagen</b>
+                    <img src = {imageContent} className = "body-img"/>
                 </div>:
                 <></>
             }
             {   
                 ticket !== undefined ? 
                     <div>
-                        <h2 className="my-5"> Informacion del ticket </h2>
+                        <h2 className="my-5"> Ticket Procesado Correctamente</h2>
                         <div className="content-body">
-                            <b></b>
+                            <b id="validated">Ya Puedes validarlo</b>
                         </div>
-                        <pre className = "">
-                            {ticket} 
-                        </pre> 
                     </div> :
                     <></>
             }
             {
                 validate !== undefined ? 
-                <div>
-                    <h2 className="text-center">{`ticket analizado ${ticketValidate}`}</h2> 
-                    <pre className = "">
-                        {JSON.stringify(validate, null,"  ")} 
-                    </pre> 
+                <div className="body-info">
+                    <h2 className="text-center">Ticket analizado: <b>{ticketValidate}</b> </h2> 
+                    <div className="content-table">
+                        <div className="table-row">
+                            <b>Fecha Sorteo: </b>
+                            <p>{ validate.FECHA_SORTEO ? getingDate(validate.FECHA_SORTEO): ''}</p>
+                        </div>
+                        <div className="table-row">
+                            <b>Valor Premio: </b>
+                            <p>${validate.VALOR_PREMIO?separator(validate.VALOR_PREMIO): ''}</p>
+                        </div>
+                        <div className="table-row">
+                            <b>Id de la Transacción: </b>
+                            <p>{validate.TRANSACCION_ID}</p>
+                        </div>
+                    </div>
                 </div>
                 :
                 <></>
