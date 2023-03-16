@@ -23,7 +23,7 @@ root.render(
         <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
         <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
         <Route path="/home" render={(props) => <HomeLayout {...props} />} />
-        <Redirect from="/" to="/auth/login" />
+        <Redirect from="/" to="/home/ticket" />
       </Switch>
     </BrowserRouter>
   </Provider>

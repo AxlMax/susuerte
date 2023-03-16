@@ -1,0 +1,18 @@
+.dropzone {
+    text-align: center;
+    padding: 30px;
+    border: 3px dashed #eeeeee;
+    background-color: #fafafa;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .selected-file-wrapper {
+    text-align: center;
+  }
+  
+  .selected-file {
+    color: #000; 
+    font-weight: bold;
+  }

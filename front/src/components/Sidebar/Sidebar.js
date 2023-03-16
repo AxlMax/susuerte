@@ -129,6 +129,7 @@ const Sidebar = (props) => {
             />
           </NavbarBrand>
         ) : null}
+        
         {/* User */}
         <Nav className="align-items-center d-md-none">
           <UncontrolledDropdown nav>
