@@ -69,7 +69,7 @@ var routes = [
     path: "/ticket-historial",
     name: "historial",
     icon: "ni ni-chart-bar-32 text-info",
-    component: Ambulancias,
+    component: Tables,
     layout: "/home"
   },
 ];

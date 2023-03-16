@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import Dropzone from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux";
 
-import {imageInfoSlice, imageContentSlice, validateSlice} from "storage/features/ticket/ticketSlice";
+import {imageInfoSlice, imageContentSlice, validateSlice, validateHistorySlice} from "storage/features/ticket/ticketSlice";
 import getToken, {validate} from "services/webservice";
 import getImageInfo from "services/image";
 
@@ -90,13 +90,12 @@ const UploadFiles = () => {
     const validateTicket = await validate(auth.data.token, parseImage[key].trim())
 
     dispatch(validateSlice(validateTicket.data))
-    
+    dispatch(validateHistorySlice(validateTicket.data))
+
     setImageInfoCharge(false)
     dispatch(imageInfoSlice(undefined))
     dispatch(imageContentSlice(undefined))
   }
-
-
 
   return (
     <div>
