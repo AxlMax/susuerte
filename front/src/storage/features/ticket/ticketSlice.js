@@ -4,7 +4,8 @@ const initialState = {
     value: null,
     content : null,
     validate : undefined,
-    
+    validateHistory : []
+
 }
 
 export const ticketSlice = createSlice({
@@ -19,10 +20,13 @@ export const ticketSlice = createSlice({
       },
       validateSlice:(state, action) => {
         state.validate = action.payload
+      },
+      validateHistorySlice:(state, action) => {
+        state.validateHistory.push(action.payload)
       }
     },
   })
 
-export const {imageInfoSlice, imageContentSlice, validateSlice} = ticketSlice.actions
+export const {imageInfoSlice, imageContentSlice, validateSlice, validateHistorySlice} = ticketSlice.actions
 
 export default ticketSlice.reducer
