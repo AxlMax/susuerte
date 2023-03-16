@@ -113,24 +113,24 @@ const UploadFiles = () => {
                         {selectedFiles && selectedFiles[0].name}
                         </div>
                     ) : (
-                        "aqui deja caer el ticket"
+                        "Selecciona una imagen / Arrastra una imagen del ticket aquí"
                     )}
                     </div>
                     <aside className="selected-file-wrapper">
                     <button
-                        className="btn btn-success my-3"
+                        className="btn btn-success my-3 animBtn"
                         disabled={!selectedFiles}
                         onClick={upload}
 
                     >
-                        cargar
+                        Procesar Imagen
                     </button>
 
                     <button className="btn btn-success m-3"
                       disabled = {!isImageInfoCharge}
                       onClick = {handlerValidate}
                     >
-                        validar
+                        Validar Ticket
                     </button>
                     </aside>
                 </section>
