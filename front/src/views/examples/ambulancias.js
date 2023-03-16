@@ -56,6 +56,9 @@ function Ambulancias() {
                         <h2 className="my-5"> Ticket Procesado Correctamente</h2>
                         <div className="content-body">
                             <b id="validated">Ya Puedes validarlo</b>
+                            <pre>
+                                {ticket}
+                            </pre>
                         </div>
                     </div> :
                     <></>

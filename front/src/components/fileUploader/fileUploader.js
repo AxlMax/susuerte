@@ -76,22 +76,34 @@ const UploadFiles = () => {
   const handlerValidate = async() => {
     //console.log(parseIamge["ID.TRA"].trim())
 
+    console.log(parseImage)
     const keys = Object.keys(parseImage)
     
     let key = ""
 
     keys.forEach(subKey => {
-       if(subKey.includes("ID TRA") || subKey.includes("ID.TRA") || subKey.includes("NO.TR") || subKey.includes("NO TR")){
+       if(
+        subKey.includes("ID TRA") || 
+        subKey.includes("ID.TRA") || 
+        subKey.includes("NO.TR") || 
+        subKey.includes("NO TR") ||
+        subKey.includes("ID. TRA")){
         key = subKey
+        
        }
     })
 
     const auth = await getToken()
+
+    console.log(parseImage[key].trim())
+
     const validateTicket = await validate(auth.data.token, parseImage[key].trim())
 
-    dispatch(validateSlice(validateTicket.data))
-    dispatch(validateHistorySlice(validateTicket.data))
-
+    if(validateTicket.data.message === undefined){
+      dispatch(validateSlice(validateTicket.data))
+      dispatch(validateHistorySlice(validateTicket.data))
+    }
+    
     setImageInfoCharge(false)
     dispatch(imageInfoSlice(undefined))
     dispatch(imageContentSlice(undefined))
