@@ -32,6 +32,16 @@ const Tables = () => {
   const History  =  useSelector(state => state.ticket.validateHistory);
   
   console.log(History)
+  function separator(numb) {
+    var str = numb.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return str.join(".");
+}
+function getingDate(fecha) {
+    const fechas = new Date(Date.parse(fecha));
+    const fechaLegible = fechas.toLocaleDateString() + ' ' + fechas.toLocaleTimeString();
+    return fechaLegible
+}
 
   return (
     <>
@@ -43,7 +53,7 @@ const Tables = () => {
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
-                <h3 className="mb-0">historial tickets</h3>
+                <h3 className="mb-0">Historial Tickets</h3>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
@@ -62,8 +72,8 @@ const Tables = () => {
                       <tr>
                         <td>{ticket["_id"]}</td>
                         <td>{ticket["TRANSACCION_ID"]}</td>
-                        <td>{ticket["FECHA_SORTEO"]} </td>
-                        <td>{ticket["VALOR_PREMIO"]} </td>
+                        <td>{ ticket["FECHA_SORTEO"]? getingDate(ticket["FECHA_SORTEO"]):''} </td>
+                        <td>${ ticket["VALOR_PREMIO"]?separator(ticket["VALOR_PREMIO"]):''} </td>
                       </tr>
                     </>
                   })}
